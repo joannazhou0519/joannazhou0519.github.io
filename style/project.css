@@ -1,0 +1,255 @@
+.project-summary {
+    height: auto;
+    margin-bottom: 50px;
+}
+
+.project-title {
+    font-weight: bold;
+    font-family: "Crimson Text", serif;
+    font-size: 40px;
+    color: white;
+    padding-left: 50px;
+    padding-bottom: 20px;
+    margin-bottom: 70px;
+    padding-top: 40px;
+    background-color: black;
+    box-shadow: 80px 30px 0 3px rgb(221, 12, 12);
+}
+
+.scroll-wrapper {
+    width: 80%;
+    height: 50px;
+    position: relative;
+    margin-inline: auto;
+    overflow: hidden;
+    mask-image: linear-gradient(
+        to right,
+        rgba(0, 0, 0, 0),
+        rgba(0 ,0 , 0, 1) 20%,
+        rgba(0 ,0 , 0, 1) 80%,
+        rgba(0, 0, 0, 0)
+        )
+}
+
+@keyframes scrollleft{
+    to {
+        left: -200px;
+    }
+}
+
+.keyword {
+    padding: 5px 15px;
+    margin-top: 2px;
+    font-family: "Crimson Text", serif;
+    box-shadow: 0 0 3px rgba(0, 0, 0, 0.2);
+    border-radius: 7px;
+    position: absolute;
+    left: max(calc(100px * 8), 100%);
+    animation-name: scrollleft;
+    animation-duration: 30s;
+    animation-timing-function: linear;
+    animation-iteration-count: infinite;
+    animation-delay: calc(30s / 8 * (8 - var(--n)) * -1);
+}
+
+
+.timeline {
+    display: flex;
+    flex-direction: column;
+    align-items: end;
+    position: relative;
+    padding: 0 50px 0 70px;
+}
+
+.timeline::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    width: 2px;
+    background-color: #000000;
+    left: 50px;
+}
+
+.project-time {
+    margin: 0;
+    padding: 5px;
+    font-size: x-large;
+    font-weight: bold;
+    line-height: 0;
+}
+
+.card-container {
+    width: 100%;
+    padding-top: 35px;
+    padding-bottom: 40px;
+    padding-right: 100px;
+    position: relative;
+}
+
+.card-container::before {
+    content: "";
+    position: absolute;
+    left: -24px;
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    background-color: white;
+    box-shadow: 0 0 5px -1px rgba(0, 0, 0, 0.8);
+
+}
+
+.card {
+    width: 100%;
+    height: 60px; /* Initial height */
+    border-radius: .75rem;
+    background-size: cover;
+    cursor: pointer;
+    overflow: hidden;
+    border-radius: 2rem;
+    margin-top: 30px;
+    margin-left: 80px;
+    display: flex;
+    flex-direction: column;
+    align-items: start; /* Align items to start to expand downward */
+    transition: height 0.6s cubic-bezier(.28,-0.03,0,.99);
+    box-shadow: 0px 0px 12px -5px rgba(0,0,0,0.8);
+}
+
+.card > .row {
+    color: white;
+    display: flex;
+    flex-wrap: nowrap;
+    width: 100%;
+    height: 100%;
+    position: relative;
+}
+
+.card > .row > .icon {
+    position: relative;
+    left: 84%;
+    font-weight: bold;
+    font-size: large;
+    letter-spacing: 1px;
+    color: white;
+    height: 100%;
+    width: 20%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    
+}
+
+.position{
+    background-color: #1d222b;
+}
+
+.project {
+    background-color: #FFC470;
+}
+
+.volunteer {
+    background-color: #597445;
+}
+
+.portfolio {
+    background-color: #4793AF;
+}
+
+
+.card > .row > .description {
+    position: relative;
+    left: -12%;
+    
+    overflow: hidden;
+    
+    width: 100%;
+    padding-top: 17px;
+}
+
+.description p {
+    color: #b0b0ba;
+    
+    opacity: 0;
+    transform: translateY(-30px); /* Change the direction of transform */
+    transition-delay: .3s;
+    transition: all .3s ease;
+}
+
+.description h4 {
+    color: black;
+    font-size: large;
+    margin-bottom: 20px;
+}
+
+input {
+    display: none;
+}
+
+input:checked + label {
+    height: 200px; /* Expanded height */
+}
+
+input:checked + label .icon {
+    height: 100%; /* Expanded height */
+}
+
+input:checked + label .description p{
+    opacity: 1 !important;
+    transform: translateY(0) !important;
+}
+
+input:checked + .card {
+    background-size: auto 100%;
+}
+
+
+.card[for="c1"] {
+    background-image: url('./img1.jpeg');
+}
+.card[for="c2"] {
+    background-image: url('/pictures/Project/Synaptech.JPG');
+    background-size: 0%; 
+    background-repeat: no-repeat;
+    background-position: 90% top;
+}
+.card[for="c3"] {
+    background-image: url('/pictures/Project/Opticars.jpg');
+    background-size: 0%; 
+    background-repeat: no-repeat;
+    background-position: 78% top;
+}
+.card[for="c4"] {
+    background-image: url('/pictures/Project/ME123.JPG');
+    background-size: 0%; 
+    background-repeat: no-repeat;
+    background-position: 90% top;
+}
+
+.card[for="c6"] {
+    background-image: url('/pictures/Project/ENGR115.png');
+    background-size: 0%; 
+    background-repeat: no-repeat;
+    background-position: 76% top;
+}
+
+.card[for="c8"] {
+    background-image: url('/pictures/Project/ToyAdp.png');
+    background-size: 0%; 
+    background-repeat: no-repeat;
+    background-position: 78% top;
+}
+
+.card[for="c7"] {
+    background-image: url('/pictures/Project/GBG.png');
+    background-size: 0%; 
+    background-repeat: no-repeat;
+    background-position: 78% top;
+}
+
+.card[for="c9"] {
+    background-image: url('/pictures/Project/ENGL131.png');
+    background-size: 0%; 
+    background-repeat: no-repeat;
+    background-position: 78% top;
+}

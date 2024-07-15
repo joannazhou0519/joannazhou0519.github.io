@@ -1,0 +1,32 @@
+html, body {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+    overflow: hidden;
+}
+
+.main {
+    scroll-snap-type: y mandatory;
+    overflow-y: scroll;
+    height: 100vh;
+    scroll-behavior: smooth; /* Adds smooth scrolling */
+}
+
+.first-and-summary {
+    scroll-snap-align: start;
+    scroll-snap-stop: always;
+}
+
+.first-page {
+    height: 100vh;
+}
+
+.project-summary {
+    min-height: 100vh;
+    /* No scroll-snap-align here to allow scrolling through content */
+}
+
+.gallery {
+    /* Removed scroll-snap-align and scroll-snap-stop to cancel snapping */
+}
+

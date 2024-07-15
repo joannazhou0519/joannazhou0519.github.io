@@ -1,0 +1,16 @@
+.main {
+    scroll-snap-type: y mandatory;
+    overflow-y: scroll;
+    height: 100vh;
+    scroll-behavior: smooth;
+}
+
+.first-page {
+    scroll-snap-align: start;
+    scroll-snap-stop: always;
+}
+
+.container {
+    scroll-snap-align: start;
+    scroll-snap-stop: normal;
+}

@@ -1,0 +1,178 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: inherit;
+}
+
+html, body {
+    height: 100%;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+.first-page {
+    height: 100vh; /* Full viewport height */
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    background-color: rgb(255, 255, 255);
+    text-align: center;
+    margin-bottom: 2px;
+}
+
+.shader-container {
+    flex: 5;
+    height: 100%;
+    background-color: black;
+    box-shadow: 0 0 5px 2px rgba(255, 255, 255, 0.75);
+}
+
+iframe {
+    box-shadow: 0 0 6px rgba(112, 112, 112, 0.75);
+}
+
+.shader-intro {
+    color:white;
+    text-indent: 20px;
+    text-align: start;
+    padding: 10px 15px 0 20px;
+}
+
+#conclusion {
+    font-size: x-large;
+    font-weight: bold;
+    text-align: center;
+    padding: 0 0 0 -5px;
+    margin-top: -15px;
+}
+
+.shader-intro {
+    opacity: 0; /* Make elements invisible initially */
+    transition: opacity 0.3s ease-in-out; /* Smooth transition for visibility */
+}
+
+.cursor {
+    display: inline-block;
+    background-color: transparent;
+    animation: blink 2s infinite;
+    position: relative; /* Use relative or absolute positioning as needed */
+     /* Adjust the top offset to move the cursor closer or farther from the text */
+    left: -20px;
+}
+
+@keyframes blink {
+    0%, 50%, 100% {
+        opacity: 1;
+    }
+    25%, 75% {
+        opacity: 0;
+    }
+}
+
+
+.intro-container {
+    display: flex;
+    flex-direction: column;
+    width: 2fr;
+    flex: 2;
+    height: 100%;
+    position: relative;
+    align-items: center;
+}
+
+.logo-container {
+    position: relative;
+}
+
+.logo {
+    scale: 60%;
+}
+
+.intro {
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+    height: 100%;
+}
+
+.profile-picture {
+    border-radius: 75px;
+    width: 150px;
+    height: 150px;
+    object-fit: cover;
+    object-position: 0px -30px;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.75);
+}
+
+.name {
+    margin-top: 15px;
+    margin-bottom: 10px;
+    font-family: "Crimson Text", serif;
+    font-size: xx-large;
+    text-shadow: 1px 2px 2px rgba(0, 0, 0, 0.15);
+}
+
+
+.role {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.role-text {
+    font-family: "Crimson Text", serif;
+    line-height: 2.5;
+    
+}
+
+.space {
+    margin-left: 20px;
+}
+
+.arrow {
+    height: auto;
+    width: auto;
+    padding-top: 0px;
+    padding-bottom: 15px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.arrow span {
+    display: block;
+    width: 2vw;
+    height: 2vw;
+    border-left: 2px solid rgba(0, 0, 0, 0.375);
+    border-top: 2px solid black;
+    
+    transform: rotate(220deg) skew(170deg);
+    margin: -5px;
+    animation: arrow-ani 3s infinite;
+}
+
+.arrow span:nth-child(1) {
+    animation-delay: -0.6s;
+}
+
+.arrow span:nth-child(2) {
+    animation-delay: -0.3s;
+}
+
+@keyframes arrow-ani {
+    0% {
+        opacity: 0;
+        transform: rotate(225deg) translate(-20px -20px);
+    }
+
+    50% {
+        opacity: 1;
+    }
+
+    100% {
+        opacity: 0;
+        transform: rotate(225deg) translate(-20px -20px);
+    }
+}

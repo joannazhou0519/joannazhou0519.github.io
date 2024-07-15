@@ -1,0 +1,140 @@
+.gallery {
+    height: 100vh;
+    background-image: url('/pictures/Gallery/wx_camera_1632147608379.jpg');
+    
+    background-size: cover; /* Ensures the image covers the entire div */
+    background-position: 100% 0%;
+    background-repeat: no-repeat;
+    
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.75);
+    
+}
+
+.gallery-title {
+    line-height: 0;
+    font-weight: bold;
+    font-family: "Crimson Text", serif;
+    font-size: 40px;
+    color: white;
+    margin-left: 30px;
+    text-shadow: 0 2px 5px rgba(0, 0, 0, 0.5);
+}
+
+.slider {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 90%;
+    height: 60%;
+    margin: 12% auto 0;
+    background-color: black;
+    border-radius: 10px;
+}
+
+.slider .prev,
+.slider .next {
+    position: absolute;
+    top: 50%;
+    width: 40px;
+    height: 40px;
+    margin-top: -20px;
+    border-radius: 50px;
+    line-height: 40px;
+    text-align: center;
+    cursor: pointer;
+    background-color: white;
+    color: black;
+    transition: all 0.5s;
+    font-size: 20px;
+    font-weight: bold;
+    opacity: 0.5;
+}
+
+.slider .prev:hover,
+.slider .next:hover {
+    opacity: 0.9;
+    
+}
+
+.slider .prev {left: 15px;}
+
+.slider .prev::before {
+    content: '<';
+}
+
+.slider .next {right: 15px;}
+
+.slider .next::before {
+    content: '>';
+}
+
+.slider > ul {
+    list-style: none;
+    position: relative;
+    width: 754px;
+    height: 292px;
+    margin: 0;
+    padding: 0;
+}
+
+.slider > ul > li {
+    position: absolute;
+    z-index: 0;
+    width: 0;
+    height: 0;
+    margin: 0;
+    padding: 0;
+    cursor: pointer;
+    background-color: rgba(1, 1, 1, 0);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transform: translate(-15%, 0%);
+}
+
+.slider > ul > li > img {
+    
+    max-width: 100%;
+    max-height: 100%;
+    
+    border: 3px solid white;
+    border-radius: 20px;
+    object-fit: contain;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.75);
+}
+
+.image-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.8);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 9999;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.5s ease, visibility 0.5s ease;
+}
+
+.image-overlay.visible {
+    opacity: 1;
+    visibility: visible;
+}
+
+.enlarged-image {
+    max-width: 90%;
+    max-height: 90%;
+    border-radius: 30px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+    transition: transform 0.5s ease;
+    transform: scale(0.8);
+}
+
+.image-overlay.visible .enlarged-image {
+    transform: scale(1);
+}
+
