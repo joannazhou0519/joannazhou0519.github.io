@@ -142,15 +142,15 @@ body {
     transition: height 0.6s cubic-bezier(.28,-0.03,0,.99);
     box-shadow: 0px 0px 12px -5px rgba(0,0,0,0.8);
 
-    animation: fade-in forwards;
+    animation: fade-in ease-out forwards;
     animation-range: 15% 30%;
     animation-timeline: view();
     opacity: 0;
 }
 
 @keyframes fade-in {
-    0% {scale: .4; opacity: 0;}
-    60% {scale: .6; opacity: 0.1;}
+    0% {scale: .6; opacity: 0;}
+    60% {scale: .8; opacity: 0.1;}
     90% {scale: 1; opacity: 0.8;}
     100% {scale: 1; opacity: 1;}
 }
@@ -208,7 +208,7 @@ body {
 
 .description p {
     color: #75757c;
-    padding-right: 50%;
+    padding-right: 40%;
     margin-inline: auto;
     opacity: 0;
     transform: translateY(-30px); /* Change the direction of transform */
@@ -218,7 +218,7 @@ body {
 
 .break {
     display: block;
-    margin-top: 10px;
+    margin-top: 5px;
 }
 
 .description h4 {
