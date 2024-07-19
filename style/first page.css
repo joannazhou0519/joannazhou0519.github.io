@@ -8,6 +8,7 @@ html, body {
     height: 100%;
     width: 100%;
     box-sizing: border-box;
+    --delay-time: 1s;
 }
 
 .first-page {
@@ -103,6 +104,7 @@ iframe {
     object-fit: cover;
     object-position: 0px -30px;
     box-shadow: 0 0 5px rgba(0, 0, 0, 0.75);
+    animation: load 1s ease-out; 
 }
 
 .name {
@@ -111,6 +113,10 @@ iframe {
     font-family: "Crimson Text", serif;
     font-size: xx-large;
     text-shadow: 1px 2px 2px rgba(0, 0, 0, 0.15);
+    animation: load 1s ease-out;
+    
+    animation-fill-mode: forwards;
+    opacity: 0;
 }
 
 
@@ -119,13 +125,46 @@ iframe {
     display: flex;
     flex-direction: column;
     justify-content: center;
+    
 }
+
+@keyframes load {
+    0% {
+        transform: translateY(50px);
+        opacity: 0;
+    }
+
+    60% {
+        opacity: 0.3;
+    }
+
+    100% {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
+
 
 .role-text {
     font-family: "Crimson Text", serif;
     line-height: 2.5;
-    
+    animation: load 1s ease-out; 
+    animation-delay: var(--delay-time);
+    animation-fill-mode: forwards;
+    opacity: 0;  
 }
+
+.role-text:nth-child(2) {
+    animation-delay: calc(var(--delay-time, 0ms) + 100ms);
+}
+.role-text:nth-child(3) {
+    animation-delay: calc(var(--delay-time, 0ms) + 170ms);
+}
+.role-text:nth-child(4) {
+    animation-delay: calc(var(--delay-time, 0ms) + 250ms);
+}
+
 
 .space {
     margin-left: 20px;
