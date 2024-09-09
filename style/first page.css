@@ -5,6 +5,7 @@
 }
 
 html, body {
+    font-family: 'Times New Roman', Times, serif;
     height: 100%;
     width: 100%;
     box-sizing: border-box;
@@ -12,25 +13,35 @@ html, body {
 }
 
 .first-page {
-    height: 100vh; /* Full viewport height */
+    min-height: 100vh; /* Full viewport height */
     display: flex;
     flex-direction: row;
     justify-content: center;
-    align-items: center;
+    align-items: stretch;
     background-color: rgb(255, 255, 255);
     text-align: center;
     margin-bottom: 2px;
 }
 
 .shader-container {
-    flex: 5;
-    height: 100%;
     background-color: black;
     box-shadow: 0 0 5px 2px rgba(255, 255, 255, 0.75);
+    display: flex;
+    flex-direction: column;
+}
+
+/* Hide the shader-container on small screens (mobile devices) */
+@media only screen and (max-width: 768px) {
+    .shader-container {
+        display: none;
+    }
 }
 
 iframe {
     box-shadow: 0 0 6px rgba(112, 112, 112, 0.75);
+    height: 100%;
+    flex-grow: 1;
+    
 }
 
 .shader-intro {
@@ -38,25 +49,27 @@ iframe {
     text-indent: 20px;
     text-align: start;
     padding: 10px 15px 0 20px;
+    flex-shrink: 0; /* Prevents shrinking so it takes up only its content size */
 }
 
 #conclusion {
     font-size: x-large;
     font-weight: bold;
     text-align: center;
-    padding: 0 0 0 -5px;
-    margin-top: -15px;
+    margin-bottom: 15px;
+    /* padding: 0 0 0 -5px; */
+    /* margin-top: -15px; */
 }
 
 .shader-intro {
-    opacity: 0; /* Make elements invisible initially */
-    transition: opacity 0.3s ease-in-out; /* Smooth transition for visibility */
+    /* opacity: 0; Make elements invisible initially */
+    /* transition: opacity 0.3s ease-in-out; Smooth transition for visibility */
 }
 
 .cursor {
     display: inline-block;
     background-color: transparent;
-    animation: blink 2s infinite;
+    animation: blink 1.8s infinite;
     position: relative; /* Use relative or absolute positioning as needed */
      /* Adjust the top offset to move the cursor closer or farther from the text */
     left: -20px;
@@ -75,15 +88,15 @@ iframe {
 .intro-container {
     display: flex;
     flex-direction: column;
-    width: 2fr;
-    flex: 2;
-    height: 100%;
+    min-width: 350px;
     position: relative;
     align-items: center;
+    /* flex-grow: 1; */
 }
 
 .logo-container {
     position: relative;
+    margin-top: -7px;
 }
 
 .logo {
@@ -93,7 +106,6 @@ iframe {
 .intro {
     display: flex;
     flex-direction: column;
-    flex: 1;
     height: 100%;
 }
 
@@ -109,7 +121,7 @@ iframe {
 
 .name {
     margin-top: 15px;
-    margin-bottom: 10px;
+    margin-bottom: 25px;
     font-family: "Crimson Text", serif;
     font-size: xx-large;
     text-shadow: 1px 2px 2px rgba(0, 0, 0, 0.15);
@@ -171,10 +183,10 @@ iframe {
 }
 
 .arrow {
-    height: auto;
-    width: auto;
-    padding-top: 0px;
-    padding-bottom: 15px;
+    /* height: auto;
+    width: auto; */
+    margin-top: 20px;
+    margin-bottom: 30px;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -182,8 +194,8 @@ iframe {
 
 .arrow span {
     display: block;
-    width: 2vw;
-    height: 2vw;
+    width: 23px;
+    height: 23px;
     border-left: 2px solid rgba(0, 0, 0, 0.375);
     border-top: 2px solid black;
     

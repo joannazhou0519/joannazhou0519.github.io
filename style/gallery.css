@@ -1,3 +1,10 @@
+/* Hide the shader-container on small screens (mobile devices) */
+@media only screen and (max-width: 768px) {
+    .gallery {
+        display: none;
+    }
+}
+
 .gallery {
     height: 100vh;
     background-image: url('/pictures/Gallery/wx_camera_1632147608379.webp');

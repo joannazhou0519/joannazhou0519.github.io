@@ -4,7 +4,6 @@ body {
 }
 
 .project-summary {
-    height: auto;
     margin-bottom: 50px;
 }
 
@@ -20,6 +19,9 @@ body {
     background-color: black;
     box-shadow: 80px 30px 0 3px rgb(221, 12, 12);
 }
+
+
+/* This is the start of the infinite scrolling effect */
 
 .scroll-wrapper {
     width: 80%;
@@ -56,6 +58,10 @@ body {
     animation-iteration-count: infinite;
     animation-delay: calc(var(--scroll-duration) / var(--scroll-num) * (var(--scroll-num) - var(--n)) * -1);
 }
+
+
+/* This is the end of the infinite scrolling effect */
+
 
 .timeline {
     display: flex;
@@ -207,8 +213,8 @@ body {
 }
 
 .description p {
-    color: #75757c;
-    padding-right: 40%;
+    color: white;
+    padding-right: 30%;
     margin-inline: auto;
     opacity: 0;
     transform: translateY(-30px); /* Change the direction of transform */
@@ -225,6 +231,11 @@ body {
     color: black;
     font-size: large;
     margin-bottom: 14px;
+    text-shadow: 
+        0 0 10px rgba(255, 255, 255, 0.9),  /* Larger and more opaque white shadow */
+        0 0 20px rgba(255, 255, 255, 0.8),  /* Even bigger shadow to increase visibility */
+        0 0 30px rgba(255, 255, 255, 0.7),  /* Extend the glow further */
+        0 0 40px rgba(255, 255, 255, 0.6);
 }
 
 input {
@@ -249,59 +260,91 @@ input:checked + .card {
 }
 
 
+.card {
+    background-size: 0%;
+    background-repeat: no-repeat;
+    /* background-image: linear-gradient(to right, rgba(0, 0, 0, 0.4) 40%, transparent 100%); */
+}
+
 .card[for="c1"] {
-    background-image: url('./img1.jpeg');
+    background-image: linear-gradient(to right, rgba(0, 0, 0, 0.3) 40%, transparent 100%);
 }
 .card[for="c2"] {
-    background-image: url('/pictures/Project/Synaptech.webp');
+    background-image: 
+        linear-gradient(to right, rgba(0, 0, 0, 0.3) 40%, transparent 100%),
+        url('/pictures/Project/Synaptech.webp');
     background-size: 0%; 
     background-repeat: no-repeat;
     background-position: 90% top;
 }
+
 .card[for="c3"] {
-    background-image: url('/pictures/Project/Opticars.webp');
+    background-image: 
+        linear-gradient(to right, rgba(0, 0, 0, 0.3) 40%, transparent 100%),
+        url('/pictures/Project/Opticars.webp');
     background-size: 0%; 
     background-repeat: no-repeat;
     background-position: 78% top;
 }
 .card[for="c4"] {
-    background-image: url('/pictures/Project/ME123.webp');
+    background-image: 
+        linear-gradient(to right, rgba(0, 0, 0, 0.3) 40%, transparent 100%),    
+        url('/pictures/Project/ME123.webp');
     background-size: 0%; 
     background-repeat: no-repeat;
     background-position: 90% top;
 }
 
 .card[for="c5"] {
-    background-image: url('/pictures/Project/BV.webp');
+    background-image: 
+        linear-gradient(to right, rgba(0, 0, 0, 0.3) 40%, transparent 100%),
+        url('/pictures/Project/BV.webp');
     background-size: 0%; 
     background-repeat: no-repeat;
     background-position: 78% top;
 }
 
 .card[for="c6"] {
-    background-image: url('/pictures/Project/ENGR115.webp');
+    background-image: 
+        linear-gradient(to right, rgba(0, 0, 0, 0.3) 40%, transparent 100%),
+        url('/pictures/Project/ENGR115.webp');
     background-size: 0%; 
     background-repeat: no-repeat;
     background-position: 76% top;
 }
 
 .card[for="c8"] {
-    background-image: url('/pictures/Project/ToyAdp.webp');
+    background-image: 
+        linear-gradient(to right, rgba(0, 0, 0, 0.3) 40%, transparent 100%),
+        url('/pictures/Project/ToyAdp.webp');
     background-size: 0%; 
     background-repeat: no-repeat;
     background-position: 78% top;
 }
 
 .card[for="c7"] {
-    background-image: url('/pictures/Project/GBG.webp');
+    background-image: 
+        linear-gradient(to right, rgba(0, 0, 0, 0.3) 40%, transparent 100%),
+        url('/pictures/Project/GBG.webp');
     background-size: 0%; 
     background-repeat: no-repeat;
     background-position: 78% top;
 }
 
 .card[for="c9"] {
-    background-image: url('/pictures/Project/ENGL131.webp');
+    background-image: 
+        linear-gradient(to right, rgba(0, 0, 0, 0.3) 40%, transparent 100%),
+        url('/pictures/Project/ENGL131.webp');
     background-size: 0%; 
     background-repeat: no-repeat;
     background-position: 78% top;
+}
+
+
+
+@media only screen and (max-width: 768px) {
+    .project-time, .card-container::before, .card {
+        animation: none;
+        opacity: 1;
+    }
 }

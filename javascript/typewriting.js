@@ -26,9 +26,11 @@ function typeEffect(element, speed, callback) {
             }
         }
     }, speed);
+
+    
 }
 
-var speed = 75; // Speed of the typewriting effect
+var speed = 35; // Speed of the typewriting effect
 var shaderIntroElements = document.querySelectorAll('.shader-container .shader-intro'); // Select all 'shader-intro' paragraphs inside the 'shader-container'
 var conclusion = document.querySelector('#conclusion'); // Select the element with id 'conclusion'
 

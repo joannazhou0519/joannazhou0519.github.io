@@ -1,3 +1,10 @@
+@media only screen and (max-width: 768px) {
+    .footer {
+        background-color: #1d222b;
+        color: white;
+    }
+}
+
 .footer {
     padding-top: 30px;
     padding-bottom: 10px;
