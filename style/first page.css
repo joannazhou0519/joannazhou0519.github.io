@@ -88,15 +88,19 @@ iframe {
 .intro-container {
     display: flex;
     flex-direction: column;
-    min-width: 350px;
     position: relative;
     align-items: center;
     /* flex-grow: 1; */
 }
 
+@media only screen and (min-width: 768px) {
+    .intro-container {
+        min-width: 350px;
+    }
+}
+
 .logo-container {
     position: relative;
-    margin-top: -7px;
 }
 
 .logo {
