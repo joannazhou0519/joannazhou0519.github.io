@@ -400,7 +400,7 @@ input:checked + .card {
     }
 
     .card[for="c1"], .card[for="c2"], .card[for="c3"], .card[for="c4"], .card[for="c5"],
-    .card[for="c6"], .card[for="c7"], .card[for="c8"], .card[for="c9"]
+    .card[for="c6"], .card[for="c7"], .card[for="c8"], .card[for="c9"], .card[for="c10"]
     {
         background-position: bottom;
        
@@ -419,7 +419,7 @@ input:checked + .card {
         padding-right: 30px;
     }
     input:checked + label {
-        height: 450px; /* Expanded height */
+        height: 500px; /* Expanded height */
     }
 
     .card > .row > .icon {
