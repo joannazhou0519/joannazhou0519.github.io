@@ -1,68 +1,84 @@
 function typeEffect(element, speed, callback) {
-    var text = element.innerHTML.trim(); // Trim to remove any leading or trailing whitespace
-    element.innerHTML = ""; // Clear the content
-
-    var cursor = document.createElement('span');
+    // Store original text and calculate height
+    const originalText = element.textContent.trim();
+    const originalHeight = element.scrollHeight;
+    
+    // Set fixed height and clear content
+    element.style.height = originalHeight + 'px';
+    element.style.overflow = 'hidden';
+    element.textContent = '';
+    
+    // Create cursor
+    const cursor = document.createElement('span');
     cursor.className = 'cursor';
-    cursor.innerHTML = '|';
     element.appendChild(cursor);
-
-    var i = 0;
-    var timer = setInterval(function(){
-        if (i < text.length){
-            element.insertBefore(document.createTextNode(text.charAt(i)), cursor);
+    
+    // Make element visible just before animation starts
+    element.style.opacity = "1";
+    
+    let i = 0;
+    const timer = setInterval(() => {
+        if (i < originalText.length) {
+            // Insert text before cursor
+            const textNode = document.createTextNode(originalText.charAt(i));
+            element.insertBefore(textNode, cursor);
             i++;
         } else {
             clearInterval(timer);
+            
+            // Remove cursor and reset styles
+            element.removeChild(cursor);
+            element.style.height = 'auto';
+            element.style.overflow = 'visible';
+            
             if (callback) callback();
-
-            // After typing is complete, keep cursor blinking if it's the conclusion element
+            
+            // Special cursor effect for conclusion (only if it's the conclusion element)
             if (element.id === 'conclusion') {
-                setInterval(function() {
-                    cursor.style.display = (cursor.style.display === 'none' ? '' : 'none');
-                }, 500); // Adjust blinking speed as needed (500ms here)
-            } else {
-                cursor.style.display = "none"; // Hide cursor after typing for other elements
+                const endCursor = document.createElement('span');
+                endCursor.className = 'cursor';
+                element.appendChild(endCursor);
             }
         }
     }, speed);
-
-    
 }
 
-var speed = 35; // Speed of the typewriting effect
-var shaderIntroElements = document.querySelectorAll('.shader-container .shader-intro'); // Select all 'shader-intro' paragraphs inside the 'shader-container'
-var conclusion = document.querySelector('#conclusion'); // Select the element with id 'conclusion'
-
-// Initially set all elements to opacity 0
-shaderIntroElements.forEach(function(element) {
-    element.style.opacity = "0";
-});
-conclusion.style.opacity = "0";
-
-// Function to type all elements sequentially
-function typeAllElements(elements, index) {
-    if (index < elements.length) {
-        elements[index].style.opacity = "1"; // Make the element visible before typing
-        typeEffect(elements[index], speed, function() {
-            typeAllElements(elements, index + 1);
-        });
-    } else {
-        conclusion.style.opacity = "1"; // Make the conclusion element visible before typing
-        if (conclusion.innerHTML.trim() === '') {
-            // Check if conclusion content is empty, then only type it
-            typeEffect(conclusion, speed); // Typing the conclusion
+// Initialize the effect
+function initTypewriter() {
+    const speed = 35;
+    const shaderIntroElements = document.querySelectorAll('.shader-container .shader-intro');
+    const conclusion = document.querySelector('#conclusion');
+    
+    // Reset all elements - set initial state to hidden
+    document.querySelectorAll('.shader-intro, #conclusion').forEach(el => {
+        el.style.opacity = "0";  // Start hidden
+        el.style.height = '';
+        el.style.overflow = '';
+        
+        // Remove any existing cursors
+        const cursor = el.querySelector('.cursor');
+        if (cursor) el.removeChild(cursor);
+    });
+    
+    // Type elements sequentially
+    function typeAllElements(elements, index) {
+        if (index < elements.length) {
+            typeEffect(elements[index], speed, () => {
+                typeAllElements(elements, index + 1);
+            });
         } else {
-            // If conclusion already has content, just start blinking the cursor
-            var cursor = conclusion.querySelector('.cursor');
-            if (cursor) {
-                setInterval(function() {
-                    cursor.style.display = (cursor.style.display === 'none' ? '' : 'none');
-                }, 500); // Adjust blinking speed as needed (500ms here)
+            // Only type the conclusion if it hasn't been typed already
+            if (!conclusion.querySelector('.cursor')) {
+                typeEffect(conclusion, speed);
             }
         }
     }
+    
+    // Start with the first element
+    typeAllElements(Array.from(shaderIntroElements), 0);
 }
 
-// Start the typewriting effect from the first element
-typeAllElements(shaderIntroElements, 0);
+// Initialize on page load
+document.addEventListener('DOMContentLoaded', () => {
+    initTypewriter();
+});

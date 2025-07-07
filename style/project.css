@@ -16,32 +16,52 @@
     box-shadow: 80px 30px 0 3px rgb(221, 12, 12);
 }
 
-
-/* This is the start of the infinite scrolling effect */
-
-body {
-    --scroll-duration: 40s;
-    --scroll-num: 8;
-}
-
 .scroll-wrapper {
-    width: 80%;
-    height: 50px;
+    max-width: 80%;
     position: relative;
     margin-inline: auto;
     overflow: hidden;
     mask-image: linear-gradient(
         to right,
         rgba(0, 0, 0, 0),
-        rgba(0 ,0 , 0, 1) 20%,
-        rgba(0 ,0 , 0, 1) 80%,
+        rgba(0 ,0 , 0, 1) 10%,
+        rgba(0 ,0 , 0, 1) 90%,
         rgba(0, 0, 0, 0)
         )
 }
 
-@keyframes scrollleft{
+.inner-scroller{
+    width: max-content;
+    flex-wrap: nowrap;
+    animation: 
+        scroll 
+        var(--_animation-duration, 40s) 
+        var(--_animation-direction, forwards)
+        linear 
+        infinite;
+}
+
+.scroll-wrapper[data-direction="right"] {
+    --_animation-direction: reverse;
+}
+
+.scroll-wrapper[data-speed="slow"] {
+    --_animation-duration: 80s;
+}
+
+.scroll-wrapper[data-speed="fast"] {
+    --_animation-duration: 30s;
+}
+
+.inner-scroller {
+    padding-block: 0.5rem;
+    display: flex;
+    gap: 1rem;
+}
+
+@keyframes scroll{
     to {
-        left: -200px;
+        transform: translate(-50%);
     }
 }
 
@@ -51,17 +71,11 @@ body {
     font-family: "Crimson Text", serif;
     box-shadow: 0 0 3px rgba(0, 0, 0, 0.2);
     border-radius: 7px;
-    position: absolute;
-    left: max(calc(110px * 8), 100%);
-    animation-name: scrollleft;
-    animation-duration: var(--scroll-duration);
-    animation-timing-function: linear;
-    animation-iteration-count: infinite;
-    animation-delay: calc(var(--scroll-duration) / var(--scroll-num) * (var(--scroll-num) - var(--n)) * -1);
 }
 
-
-/* This is the end of the infinite scrolling effect */
+.inner-scroller:hover {
+  animation-play-state: paused;
+}
 
 
 .timeline {

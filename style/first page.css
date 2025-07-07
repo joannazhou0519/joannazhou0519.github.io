@@ -61,20 +61,16 @@ iframe {
     /* margin-top: -15px; */
 }
 
-.shader-intro {
-    /* opacity: 0; Make elements invisible initially */
-    /* transition: opacity 0.3s ease-in-out; Smooth transition for visibility */
-}
-
 .cursor {
     display: inline-block;
-    background-color: transparent;
+    width: 2px;
+    background: white;
+    margin-left: 3px;
+    height: 1.2em;
+    vertical-align: middle;
     animation: blink 1.8s infinite;
-    position: relative; /* Use relative or absolute positioning as needed */
-     /* Adjust the top offset to move the cursor closer or farther from the text */
-    left: -20px;
 }
-
+        
 @keyframes blink {
     0%, 50%, 100% {
         opacity: 1;
