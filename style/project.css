@@ -295,7 +295,12 @@ input:checked + .card {
 }
 
 .card[for="c1"] {
-    background-image: linear-gradient(to right, rgba(0, 0, 0, 0.3) 40%, transparent 100%);
+    background-image: 
+        linear-gradient(to right, rgba(0, 0, 0, 0.3) 40%, transparent 100%),
+        url('/pictures/Project/Research.webp');
+    background-size: 0%; 
+    background-repeat: no-repeat;
+    background-position: 80% top;
 }
 .card[for="c2"] {
     background-image: 
@@ -377,7 +382,68 @@ input:checked + .card {
     background-position: 78% top;
 }
 
+.card[for="c11"] {
+    background-image: 
+        linear-gradient(to right, rgba(0, 0, 0, 0.3) 40%, transparent 100%),
+        url('/pictures/Project/SARP.webp');
+    background-size: 0%; 
+    background-repeat: no-repeat;
+    background-position: 78% top;
+}
 
+.card[for="c12"] {
+    background-image: 
+        linear-gradient(to right, rgba(0, 0, 0, 0.3) 40%, transparent 100%),
+        url('/pictures/Project/SENT.webp');
+    background-size: 0%; 
+    background-repeat: no-repeat;
+    background-position: 75% top;
+}
+
+.card[for="c13"] {
+    background-image: 
+        linear-gradient(to right, rgba(0, 0, 0, 0.3) 40%, transparent 100%),
+        url('/pictures/Project/DistortionAmp.webp');
+    background-size: 0%; 
+    background-repeat: no-repeat;
+    background-position: 78% top;
+}
+
+.card[for="c14"] {
+    background-image: 
+        linear-gradient(to right, rgba(0, 0, 0, 0.3) 40%, transparent 100%),
+        url('/pictures/Project/');
+    background-size: 0%; 
+    background-repeat: no-repeat;
+    background-position: 78% top;
+}
+
+.card[for="c15"] {
+    background-image: 
+        linear-gradient(to right, rgba(0, 0, 0, 0.3) 40%, transparent 100%),
+        url('/pictures/Project/EE271.webp');
+    background-size: 0%; 
+    background-repeat: no-repeat;
+    background-position: 78% top;
+}
+
+.card[for="c16"] {
+    background-image: 
+        linear-gradient(to right, rgba(0, 0, 0, 0.3) 40%, transparent 100%),
+        url('/pictures/Project/');
+    background-size: 0%; 
+    background-repeat: no-repeat;
+    background-position: 78% top;
+}
+
+.card[for="c17"] {
+    background-image: 
+        linear-gradient(to right, rgba(0, 0, 0, 0.3) 40%, transparent 100%),
+        url('/pictures/Project/Mask.webp');
+    background-size: 0%; 
+    background-repeat: no-repeat;
+    background-position: 78% top;
+}
 
 @media only screen and (max-width: 768px) {
     .project-time, .card-container::before, .card {
@@ -414,7 +480,9 @@ input:checked + .card {
     }
 
     .card[for="c1"], .card[for="c2"], .card[for="c3"], .card[for="c4"], .card[for="c5"],
-    .card[for="c6"], .card[for="c7"], .card[for="c8"], .card[for="c9"], .card[for="c10"]
+    .card[for="c6"], .card[for="c7"], .card[for="c8"], .card[for="c9"], .card[for="c10"],
+    .card[for="c11"], .card[for="c12"], .card[for="c13"], .card[for="c14"], .card[for="c15"],
+    .card[for="c16"], .card[for="c17"]
     {
         background-position: bottom;
        
