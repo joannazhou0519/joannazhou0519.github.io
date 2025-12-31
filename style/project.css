@@ -403,7 +403,7 @@ input:checked + .card {
 .card[for="c13"] {
     background-image: 
         linear-gradient(to right, rgba(0, 0, 0, 0.3) 40%, transparent 100%),
-        url('/pictures/Project/DistortionAmp.webp');
+        url('/pictures/Project/DistortionAmpPCB.webp');
     background-size: 0%; 
     background-repeat: no-repeat;
     background-position: 78% top;
